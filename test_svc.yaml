@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+   name: nginx
+   labels:
+     name: https-service
+     app: proxy-app
+spec:
+   type: LoadBalancer
+   ports:
+     - port: 80
+       targetPort: 80
+
+
+   selector:
+       app: proxy-app
+       name: nginx-pod
+
